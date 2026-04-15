@@ -534,9 +534,9 @@ export function TransferLand() {
                       setNewOwner({ ...newOwner, ownerType: e.target.value })
                     }
                   >
-                    {OWNER_TYPES.map((t) => (
-                      <option key={t} value={t}>
-                        {t}
+                    {OWNER_TYPES.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
                       </option>
                     ))}
                   </select>
@@ -606,9 +606,9 @@ export function TransferLand() {
                       })
                     }
                   >
-                    {TRANSFER_TYPES.map((t) => (
-                      <option key={t} value={t}>
-                        {t}
+                    {TRANSFER_TYPES.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
                       </option>
                     ))}
                   </select>

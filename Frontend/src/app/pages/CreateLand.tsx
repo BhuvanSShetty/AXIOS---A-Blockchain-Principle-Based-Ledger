@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { useState, useCallback } from "react";
+import { useState, useCallback, memo } from "react";
 import { useNavigate } from "react-router";
 import {
   MapPin,
@@ -51,7 +51,7 @@ interface FieldProps {
   required?: boolean;
 }
 
-function InputField({
+const InputField = memo(function InputField({
   label,
   name,
   value,
@@ -75,7 +75,7 @@ function InputField({
       />
     </div>
   );
-}
+});
 
 interface SelectProps {
   label: string;
@@ -86,7 +86,7 @@ interface SelectProps {
   required?: boolean;
 }
 
-function SelectField({
+const SelectField = memo(function SelectField({
   label,
   name,
   value,
@@ -118,7 +118,7 @@ function SelectField({
       </select>
     </div>
   );
-}
+});
 
 interface ToggleProps {
   label: string;
@@ -127,7 +127,7 @@ interface ToggleProps {
   onChange: (e: { target: { name: string; value: boolean } }) => void;
 }
 
-function ToggleField({ label, name, value, onChange }: ToggleProps) {
+const ToggleField = memo(function ToggleField({ label, name, value, onChange }: ToggleProps) {
   return (
     <div className="flex items-center justify-between py-2">
       <label className="text-[13px] text-text-secondary">{label}</label>
@@ -147,7 +147,7 @@ function ToggleField({ label, name, value, onChange }: ToggleProps) {
       </button>
     </div>
   );
-}
+});
 
 /* ------------------------------------------------------------------ */
 /*  Main component                                                    */

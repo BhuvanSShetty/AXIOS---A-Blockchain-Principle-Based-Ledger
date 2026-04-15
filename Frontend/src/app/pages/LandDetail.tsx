@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, memo } from "react";
 import { useParams } from "react-router";
 import {
   Loader2,
@@ -134,7 +134,7 @@ export function LandDetail() {
   ];
 
   return (
-    <div className="p-6 lg:p-8 max-w-5xl">
+    <div className="p-6 lg:p-8 max-w-5xl mx-auto">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
@@ -345,7 +345,7 @@ export function LandDetail() {
   );
 }
 
-function Section({
+const Section = memo(function Section({
   title,
   icon,
   children,
@@ -363,9 +363,9 @@ function Section({
       <div className="p-5">{children}</div>
     </div>
   );
-}
+});
 
-function Field({
+const Field = memo(function Field({
   label,
   value,
 }: {
@@ -378,4 +378,4 @@ function Field({
       <div className="text-sm text-text-primary">{value || "—"}</div>
     </div>
   );
-}
+});

@@ -14,7 +14,7 @@ import {
   ArrowLeftRight,
   Zap,
 } from "lucide-react";
-import { adminAPI } from "../lib/api";
+import { adminAPI, publicAPI } from "../lib/api";
 import { useAuth } from "../lib/auth";
 import { useTranslation } from "react-i18next";
 import { GlowButton } from "../components/GlowButton";

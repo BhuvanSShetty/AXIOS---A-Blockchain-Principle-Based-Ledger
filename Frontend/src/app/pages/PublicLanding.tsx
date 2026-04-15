@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef, useEffect, memo } from "react";
 import { useTranslation } from "react-i18next";
 import {
   Search,
@@ -69,11 +69,13 @@ export function PublicLanding() {
 
   // Auto-rotate carousel every 5 seconds
   useEffect(() => {
+    const total = carouselImages.length;
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % carouselImages.length);
+      setCurrentImageIndex((prev) => (prev + 1) % total);
     }, 5000);
     return () => clearInterval(interval);
-  }, [carouselImages.length]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const features = [
     {
@@ -740,7 +742,7 @@ export function PublicLanding() {
   );
 }
 
-function DataField({
+const DataField = memo(function DataField({
   icon,
   label,
   value,
@@ -766,4 +768,4 @@ function DataField({
       </div>
     </motion.div>
   );
-}
+});
